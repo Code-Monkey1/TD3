@@ -8,6 +8,23 @@
 
 // Constucteurs
 
+Depense::Depense(const string & nom, double montant, const string & lieu, TypeDepense type)
+{
+	nom_ = nom;
+	montant_ = montant;
+	setLieu(lieu);
+	type_ = type;
+}
+
+Depense::Depense(const Depense & depense)
+{
+	nom_ = depense.getNom();
+	montant_ = depense.getMontant();
+	setLieu(*depense.getLieu);
+	type_ = depense.getType();
+}
+
+//Destructeur
 
 Depense::~Depense()
 {	
@@ -27,6 +44,11 @@ double Depense::getMontant() const {
 string* Depense::getLieu() const
 {
 	return lieu_;
+}
+
+TypeDepense Depense::getType() const
+{
+	return type_;
 }
 
 
@@ -53,5 +75,18 @@ void Depense::setType(TypeDepense type) {
 
 Depense& Depense::operator=(const Depense & depense)
 {
-	
+	if (this != &depense) {
+
+		setNom(depense.getNom());
+		setMontant(depense.getMontant());
+		setLieu(*depense.getLieu);
+		setType(depense.getType);
+	}
+	return *this;
+}
+
+ostream & operator<<(ostream & os, const Depense & depense)
+{
+	os << "L'achat fait a " << *depense.getLieu << " pour " << depense.getNom << " a coute " << depense.getMontant;
+	return os;
 }
