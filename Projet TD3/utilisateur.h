@@ -23,7 +23,7 @@ class Utilisateur {
 public:
 	// Constructeurs
 	Utilisateur();
-	Utilisateur(const string& nom = "", TypeUtilisateur type = Regulier);
+	Utilisateur(const string& nom, TypeUtilisateur type, double interet);
 	Utilisateur(const Utilisateur& utilisateur);
 
 	//destructeur 
@@ -50,10 +50,10 @@ public:
 
 
 private:
-	double interet_;
-	string nom_;
-	TypeUtilisateur type_; 
+	double interet_ = 0;
+	string nom_ = "";
+	TypeUtilisateur type_ = Regulier; 
 	vector <Depense*> depenses_;
-	double totalDepense_; 
+	double totalDepense_ = 0; 
 };
 #endif
