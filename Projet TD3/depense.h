@@ -20,9 +20,9 @@ class Depense {
 public:
 	// Constructeurs
 
-	Depense(const string& nom = "", double montant = 0 , const string& lieu = "Montreal");
+	Depense(const string& nom = "", double montant = 0 , const string& lieu = "Montreal", TypeDepense typeDepense = individuelle);
 	Depense(const Depense& depense);
-
+	
 	// Destructeur 
 	~Depense();
 
