@@ -1,17 +1,19 @@
 /********************************************
 * Titre: Travail pratique #2 - utilisateur.cpp
-* Date: 16 septembre 2018
-* Auteur: Wassim Khene & David Dratwa 
+* Date: 22 octobre 2018
+* Auteur: Jules Lefebvre et Raphael Geoffrion 
 *******************************************/
 
 #include "utilisateur.h"
 
 // Constructeurs
 
+// par défaut
 Utilisateur::Utilisateur()
 {
 }
 
+// par paramètre
 Utilisateur::Utilisateur(const string& nom, TypeUtilisateur type, double interet)
 {
 	nom_ = nom;
@@ -19,6 +21,7 @@ Utilisateur::Utilisateur(const string& nom, TypeUtilisateur type, double interet
 	interet_ = interet;
 }
 
+// par copie
 Utilisateur::Utilisateur(const Utilisateur& utilisateur) 
 {
 	nom_ = utilisateur.getNom();
@@ -28,6 +31,7 @@ Utilisateur::Utilisateur(const Utilisateur& utilisateur)
 	totalDepense_ = utilisateur.getTotalDepenses();
 }
 
+// destructeur
 Utilisateur::~Utilisateur()
 {
 }
@@ -51,8 +55,7 @@ double Utilisateur::getInteret() const {
 }
 
 unsigned int Utilisateur::getNombreDepenses() const {
-	
-	return depenses_.size();
+		return depenses_.size();
 }
 
 vector <Depense*> Utilisateur::getDepenses() const {
@@ -76,21 +79,25 @@ void Utilisateur::calculerTotalDepenses() {
 	totalDepense_ = total;
 }
 
+// surcharge de l'opérateur += pour ajouter une depense (ptr depense) à un utilisateur.
 Utilisateur& Utilisateur::operator+=(Depense* pointeurDepense) {
 	depenses_.push_back(pointeurDepense);
 	return *this;
 }
 
+// surcharge de l'opérateur = pour copier les attributs d'un autre utilisateur à la façon du constructeur par copie.
 Utilisateur& Utilisateur::operator=(Utilisateur* pointeurUtilisateur) {
 	if (this != pointeurUtilisateur) {
 		nom_ = pointeurUtilisateur->getNom();
 		interet_ = pointeurUtilisateur->getInteret();
 		type_ = pointeurUtilisateur->getType();
+		// Correction du TD2: "Dans l'operator =, il ne faut pas détruire toutes les dépenses."
 		/*for (int i = 0; i < depenses_.size(); i++) {
 			delete depenses_[i];
 			depenses_[i] = nullptr;
 		}*/
 		depenses_ = pointeurUtilisateur->getDepenses();
+		totalDepense_ = pointeurUtilisateur->getTotalDepenses();
 	}
 	return *this;
 }
