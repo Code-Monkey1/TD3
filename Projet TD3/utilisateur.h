@@ -14,6 +14,8 @@
 #include"depense.h"
 
 const double TAUX_REGULIER = 0.05;
+const double TAUX_INITIAL_PREMIUM = 0.05;
+const unsigned int JOURS_RESTANTS_INITIAL = 30;
 
 enum TypeUtilisateur{Regulier, Premium};
 
@@ -22,8 +24,7 @@ using namespace std;
 class Utilisateur {
 public:
 	// Constructeurs
-	Utilisateur();
-	Utilisateur(const string& nom, TypeUtilisateur type, double interet);
+	Utilisateur(const string& nom = "", TypeUtilisateur type = Regulier, double interet = 0);
 	Utilisateur(const Utilisateur& utilisateur);
 
 	//destructeur 
@@ -50,10 +51,10 @@ public:
 
 
 private:
-	double interet_ = 0;
-	string nom_ = "";
-	TypeUtilisateur type_ = Regulier; 
+	double interet_;
+	string nom_;
+	TypeUtilisateur type_; 
 	vector <Depense*> depenses_;
-	double totalDepense_ = 0; 
+	double totalDepense_; 
 };
 #endif

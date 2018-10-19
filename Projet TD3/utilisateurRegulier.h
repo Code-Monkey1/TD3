@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #3 - utilisateurRegulier.h
-* Date premiere version : 2 octobre 2018
-* Auteur: David Dratwa
+* Date : 22 octobre 2018
+* Auteurs: Raphael Geoffrion et Jules Lefebvre
 *******************************************/
 #ifndef UTILISATEUR_REGULIER_H
 #define UTILISATEUR_REGULIER_H
@@ -12,7 +12,7 @@ class UtilisateurRegulier : public Utilisateur {
 public : 
 
 	//constructeurs 
-	UtilisateurRegulier(const string& nom = ""); 
+	UtilisateurRegulier(const string& nom = "", bool estGroupe = false); 
 	UtilisateurRegulier(const Utilisateur& utilisateur); 
 
 
@@ -24,11 +24,13 @@ public :
 	
 
 	//surcharge
+
+	// Il est demandé d'utiliser la surcharge = de la classe mère.
 	UtilisateurRegulier& operator=(Utilisateur* utilisateur);
+	
 	friend ostream& operator<< (ostream& os, const UtilisateurRegulier& utilisateur); 
 private :
 	bool estGroupe_; 
-	
 };
 
 #endif // !UTILISATEUR_REGULIER_H

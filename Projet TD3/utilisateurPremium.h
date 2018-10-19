@@ -14,7 +14,7 @@ class UtilisateurPremium : public Utilisateur {
 public :
 
 	//constructeurs 
-	UtilisateurPremium(const string& nom= "");
+	UtilisateurPremium(const string& nom= "", unsigned int joursRestants = JOURS_RESTANTS_INITIAL, double taux = TAUX_INITIAL_PREMIUM);
 	UtilisateurPremium(const Utilisateur& utilisateur); 
 
 

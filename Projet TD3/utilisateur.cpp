@@ -8,20 +8,14 @@
 
 // Constructeurs
 
-// par défaut
-Utilisateur::Utilisateur()
-{
-}
-
-// par paramètre
 Utilisateur::Utilisateur(const string& nom, TypeUtilisateur type, double interet)
 {
 	nom_ = nom;
 	type_ = type;
 	interet_ = interet;
+	double totalDepense_ = 0;
 }
 
-// par copie
 Utilisateur::Utilisateur(const Utilisateur& utilisateur) 
 {
 	nom_ = utilisateur.getNom();
