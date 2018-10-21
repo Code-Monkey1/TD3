@@ -16,20 +16,19 @@ Depense::Depense(const string & nom, double montant, const string & lieu, TypeDe
 	type_ = type;
 }
 
-Depense::Depense(const Depense & depense)
+Depense::Depense(const Depense & depense) : nom_(depense.getNom()), montant_(depense.getMontant()), lieu_(nullptr), type_(depense.getType())
 {
-	nom_ = depense.getNom();
-	montant_ = depense.getMontant();
-	setLieu(*depense.getLieu);
-	type_ = depense.getType();
+	lieu_ = new string(*depense.getLieu());
 }
 
 //Destructeur
 
 Depense::~Depense()
 {	
-	if (lieu_ != nullptr)
-		delete lieu_;
+	if (lieu_ != nullptr) {
+	delete lieu_;
+	lieu_ = nullptr;
+	}
 }
 
 // Methodes d'acces
@@ -51,8 +50,6 @@ TypeDepense Depense::getType() const
 	return type_;
 }
 
-
-
 // Methodes de modifications
 void Depense::setNom(const string& nom) {
 	nom_ = nom;
@@ -68,7 +65,6 @@ void Depense::setLieu(const string& nom)
 	lieu_ = new string(nom);
 }
 
-
 void Depense::setType(TypeDepense type) {
 	type_ = type; 
 }
@@ -79,14 +75,14 @@ Depense& Depense::operator=(const Depense & depense)
 
 		setNom(depense.getNom());
 		setMontant(depense.getMontant());
-		setLieu(*depense.getLieu);
-		setType(depense.getType);
+		lieu_ = new string(*depense.getLieu());
+		setType(depense.getType());
 	}
 	return *this;
 }
 
 ostream & operator<<(ostream & os, const Depense & depense)
 {
-	os << "L'achat fait a " << *depense.getLieu << " pour " << depense.getNom << " a coute " << depense.getMontant;
+	os << "L'achat fait a " << *depense.getLieu() << " qui se nomme: " << depense.getNom() << " a coute un montant de " << depense.getMontant() << ".";
 	return os;
 }

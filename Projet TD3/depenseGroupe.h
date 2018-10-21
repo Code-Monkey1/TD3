@@ -17,19 +17,19 @@ using namespace std;
 class DepenseGroupe : public Depense {
 public:
 	//constructeur
-	DepenseGroupe( const string& nom = "", double montant = 0, const string& lieu = "Montreal" );
-	DepenseGroupe(const DepenseGroupe& depense); 
+	DepenseGroupe(const string& nom, double montant, const string& lieu);
+	DepenseGroupe(const DepenseGroupe& depense);
 
 	//getters 
 	unsigned int getNombreParticipants() const; 
 	double getMontantPersonnel() const;
 
 	//setters
-	void setNombreParticipants(unsigned int nombre); 
+	void setNombreParticipants(unsigned int nombreParticipants);
 
 
 	//surcharge 
-	friend ostream& operator<<(ostream& os, const DepenseGroupe& depense); 
+	friend ostream& operator<<(ostream& os, const DepenseGroupe& depenseGroupe); 
 private : 
 	//Les utilisateurs qui partageront la depense
 	unsigned int  nombreParticipants_; 
