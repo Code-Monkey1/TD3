@@ -24,7 +24,7 @@ using namespace std;
 class Utilisateur {
 public:
 	// Constructeurs
-	Utilisateur(const string& nom = "", TypeUtilisateur type = Regulier, double interet = 0);
+	Utilisateur(const string& nom = "", TypeUtilisateur type = Regulier);
 	Utilisateur(const Utilisateur& utilisateur);
 
 	//destructeur 

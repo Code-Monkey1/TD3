@@ -30,7 +30,7 @@ public :
 	
 	friend ostream& operator<< (ostream& os, const UtilisateurRegulier& utilisateur); 
 private :
-	bool estGroupe_; 
+	bool estGroupe_;
 };
 
 #endif // !UTILISATEUR_REGULIER_H

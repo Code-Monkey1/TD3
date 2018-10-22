@@ -6,7 +6,7 @@
 
 #include "utilisateurPremium.h"
 
-UtilisateurPremium::UtilisateurPremium(const string & nom, unsigned int joursRestants, double taux):Utilisateur(nom,Premium,taux)
+UtilisateurPremium::UtilisateurPremium(const string & nom, unsigned int joursRestants, double taux):Utilisateur(nom,Premium)
 {
 	joursRestants_ = joursRestants;
 	taux_ = taux;
@@ -14,7 +14,8 @@ UtilisateurPremium::UtilisateurPremium(const string & nom, unsigned int joursRes
 
 UtilisateurPremium::UtilisateurPremium(const Utilisateur & utilisateur):Utilisateur(utilisateur)
 {
-	// Doit-on initialiser joursRestants_ et taux_ ?
+	joursRestants_ = JOURS_RESTANTS_INITIAL;
+	taux_ = TAUX_INITIAL_PREMIUM;
 }
 
 // Méthodes d'accès
@@ -49,10 +50,12 @@ void UtilisateurPremium::calculerTaux()
 
 UtilisateurPremium & UtilisateurPremium::operator=(Utilisateur * utilisateur)
 {
-	// 
+	static_cast<Utilisateur>(*utilisateur) = *utilisateur;
+	return *this;
 }
 
 ostream & operator<<(ostream & os, const UtilisateurPremium & utilisateur)
 {
-	// TODO: insérer une instruction return ici
+	os << static_cast<Utilisateur>(utilisateur) << "( taux final de :" << utilisateur.getTaux() << ")" << endl;
+	return os;
 }
