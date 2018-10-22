@@ -1,7 +1,7 @@
 /********************************************
-* Titre: Travail pratique #2 - depense.cpp
-* Date: 16 septembre 2018
-* Auteur: Wassim Khene & David Dratwa
+* Titre: Travail pratique #3 - depense.cpp
+* Date: 22 octobre 2018
+* Auteur: Jules Lefebvre et Raphael Geoffrion
 *******************************************/
 
 #include "depense.h"

@@ -1,7 +1,7 @@
 /********************************************
-* Titre: Travail pratique #2 - groupe.h
-* Date: 16 septembre 2018
-* Auteur: Wassim Khene & David Dratwa
+* Titre: Travail pratique #3 - groupe.h
+* Date: 22 octobre 2018
+* Auteur: Jules Lefebvre et Raphael Geoffrion
 *******************************************/
 
 #ifndef GROUPE_H

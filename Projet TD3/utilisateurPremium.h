@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #3 - utilisateurPremium.h
-* Date premiere version : 2 octobre 2018
-* Auteur: David Dratwa
+* Date : 22 octobre 2018
+* Auteurs: Raphael Geoffrion et Jules Lefebvre
 *******************************************/
 
 #ifndef UTILISATEUR_PREMIUM_H

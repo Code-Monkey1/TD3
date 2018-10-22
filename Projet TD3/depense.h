@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #3 - depense.h
-* Date premiere version : 16 septembre 2018
-* Auteur: Wassim Khene & David Dratwa
+* Date : 22 octobre 2018
+* Auteurs: Raphael Geoffrion et Jules Lefebvre
 *******************************************/
 
 #ifndef DEPENSE_H

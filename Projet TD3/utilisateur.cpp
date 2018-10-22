@@ -1,5 +1,5 @@
 /********************************************
-* Titre: Travail pratique #2 - utilisateur.cpp
+* Titre: Travail pratique #3 - utilisateur.cpp
 * Date: 22 octobre 2018
 * Auteur: Jules Lefebvre et Raphael Geoffrion 
 *******************************************/
