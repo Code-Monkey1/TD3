@@ -133,6 +133,9 @@
     <ClInclude Include="utilisateurPremium.h" />
     <ClInclude Include="utilisateurRegulier.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Reponses Questions.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -104,18 +104,23 @@ Utilisateur& Utilisateur::operator=(Utilisateur* pointeurUtilisateur) {
 // Methode d'affichage
 ostream& operator<<(ostream& os, const Utilisateur& utilisateur)
 {
-	os << "Utilisateur : " << utilisateur.getNom() << " (" << utilisateur.getType() << ") a depense pour un total de : " << utilisateur.getTotalDepenses()
+	string categorieUtilisateur = "";
+	switch(utilisateur.getType()){
+		case 0: categorieUtilisateur = "regulier";
+		case 1: categorieUtilisateur = "premium";
+	}
+	os << "Utilisateur : " << utilisateur.getNom() << " (" << categorieUtilisateur << ") a depense pour un total de : " << utilisateur.getTotalDepenses()
 		<< ", PolyCount prend en interet : " << utilisateur.getInteret() << ", voici les depenses :" << endl;
 	// Dépenses individuelles
 	for (unsigned int i = 0; i < utilisateur.getNombreDepenses(); i++) {
 		if(utilisateur.depenses_[i]->getType() == individuelle){
-			cout << "\t\t" << (*utilisateur.depenses_[i]) << endl;
+			os << "\t\t" << (*utilisateur.depenses_[i]) << endl;
 		}
 	}
 	// Dépenses de groupe
 	for (unsigned int i = 0; i < utilisateur.getNombreDepenses(); i++) {
 		if (utilisateur.depenses_[i]->getType() == groupe) {
-			cout << "\t\t" << "Depense de groupe :\t" << (*utilisateur.depenses_[i]) << endl;
+			os << "\t\t" << "Depense de groupe :\t" << (*utilisateur.depenses_[i]) << endl;
 		}
 	}
 	return os;

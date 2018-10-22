@@ -260,6 +260,6 @@ ostream & operator<<(ostream& os, const Groupe& groupe)
 	{
 		os << "    " << *groupe.transferts_[i] << endl;
 	}
-	os << endl << "Merci d'avoir utiliser PolyCount!" << endl;
+	os << endl << "Merci d'avoir utilise PolyCount!" << endl;
 	return os;
 }

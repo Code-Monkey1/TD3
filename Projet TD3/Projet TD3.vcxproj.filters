@@ -63,4 +63,7 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Reponses Questions.txt" />
+  </ItemGroup>
 </Project>
