@@ -49,7 +49,7 @@ double Utilisateur::getInteret() const {
 }
 
 unsigned int Utilisateur::getNombreDepenses() const {
-		return depenses_.size();
+	return depenses_.size();
 }
 
 vector <Depense*> Utilisateur::getDepenses() const {
@@ -108,13 +108,13 @@ ostream& operator<<(ostream& os, const Utilisateur& utilisateur)
 		<< ", PolyCount prend en interet : " << utilisateur.getInteret() << ", voici les depenses :" << endl;
 	// Dépenses individuelles
 	for (unsigned int i = 0; i < utilisateur.getNombreDepenses(); i++) {
-		if(*utilisateur.depenses_[i]->getType == individuelle){
+		if(utilisateur.depenses_[i]->getType() == individuelle){
 			cout << "\t\t" << (*utilisateur.depenses_[i]) << endl;
 		}
 	}
 	// Dépenses de groupe
 	for (unsigned int i = 0; i < utilisateur.getNombreDepenses(); i++) {
-		if (*utilisateur.depenses_[i]->getType == groupe) {
+		if (utilisateur.depenses_[i]->getType() == groupe) {
 			cout << "\t\t" << "Depense de groupe :\t" << (*utilisateur.depenses_[i]) << endl;
 		}
 	}
