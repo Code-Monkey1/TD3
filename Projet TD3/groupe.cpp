@@ -124,9 +124,11 @@ Groupe& Groupe::ajouterDepense(Depense* depense, Utilisateur* payePar, vector<Ut
 		}
 
 		//Mets à jour les comptes des utilisateurs concernés
+		comptes_.resize(utilisateurs_.size());		//Faire de l'espace dans le vecteur
 		for (unsigned int i = 0; i < utilisateurs_.size(); i++)
 		{
 			if (payePar->getNom() == utilisateurs_[i]->getNom()) {
+
 				comptes_[i] = comptes_[i] + ptrDepenseGroupe->getMontant() - ptrDepenseGroupe->getMontantPersonnel();
 			}
 			for (unsigned int j = 0; j < payePour.size(); j++)
