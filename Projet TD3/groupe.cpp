@@ -149,16 +149,15 @@ Groupe& Groupe::operator+=(Utilisateur* utilisateur)
 {
 	bool peutAjouterUtilisateur = false;
 	//Verifier que si l'utilisateur est regulier, qu'il ne soit pas déjà dans un groupe
-	if (utilisateur->getType() == Regulier) {
-
+	if (utilisateur->getType() == Regulier)
+	{
 		if (static_cast<UtilisateurRegulier>(*utilisateur).estGroupe() == false) {
 			peutAjouterUtilisateur == true;
 		}
 	}
 	else
 	{
-		if (static_cast<UtilisateurPremium>(*utilisateur).getJoursRestants() > 0)
-		{
+		if (static_cast<UtilisateurPremium>(*utilisateur).getJoursRestants() > 0){
 			peutAjouterUtilisateur = true;
 		}
 	}
@@ -253,6 +252,7 @@ ostream & operator<<(ostream& os, const Groupe& groupe)
 {
 	for (unsigned int i = 0; i < groupe.utilisateurs_.size(); i++)
 	{
+		groupe.utilisateurs_[i]->calculerTotalDepenses();
 		os << *groupe.utilisateurs_[i] << endl;
 	}
 	os << endl << "Les transferts suivant ont ete fait pour equilibrer les comptes:" << endl;

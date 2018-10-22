@@ -2,6 +2,23 @@
 * Titre: Travail pratique #3 - main.cpp
 * Date: 16 septembre 2018
 * Auteur: David Dratwa
+* Réponses aux questions :
+*
+*1. Il est tout à fait logique de dériver une classe UtilisateurPremium 
+*	et une classe UtilisaterRegulier d'une classe utilisateur, car on peut
+*	affirmer qu'un utilisateur Premium (ou Regulier) est un utilisateur.
+*	Cela respecte donc le concept de l'héritage.  Aussi, dans notre cas,
+*	l'utilisation de la classe parent utilisateur nous permet d'éviter de
+*	réécrire du code qui se trouverait dans utilisateur premium et utilisateur
+*	régulier. L'usage des classes dérivées est donc justifié.
+*
+*2.	1. La fonction static_cast permet de transformer le type d'un pointeur.
+*	Dans le	cas de la surcharge de << de la classe groupe, static_cast permet
+*	l'accès aux méthodes des affichages des différentes classes.
+*	
+*	2. Si on omet la fonction static_cast dans la méthode d'affichage de la
+*	classe groupe (surcharge <<) on n'aura pas accès aux méthodes d'affichages
+*	des différentes classes.
 *******************************************/
 
 #include <iostream>
