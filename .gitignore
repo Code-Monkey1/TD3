@@ -44,3 +44,6 @@ Projet TD3/Debug/Projet TD3.tlog/CL.read.1.tlog
 Projet TD3/Debug/Projet TD3.tlog/CL.command.1.tlog
 Projet TD3/Debug/Projet TD3.log
 *.ipch
+*.ilk
+*.pdb
+*.tlog

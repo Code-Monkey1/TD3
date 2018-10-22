@@ -249,5 +249,15 @@ void Groupe::equilibrerComptes() {
 // Methode d'affichage
 ostream & operator<<(ostream& os, const Groupe& groupe)
 {
-	
+	for (unsigned int i = 0; i < groupe.utilisateurs_.size(); i++)
+	{
+		os << *groupe.utilisateurs_[i] << endl;
+	}
+	os << endl << "Les transferts suivant ont ete fait pour equilibrer les comptes:" << endl;
+	for (unsigned int i = 0; i < groupe.transferts_.size(); i++)
+	{
+		os << "    " << *groupe.transferts_[i] << endl;
+	}
+	os << endl << "Merci d'avoir utiliser PolyCount!" << endl;
+	return os;
 }
