@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #3 - depenseGroupe.h
-* Date premiere version : 2 octobre 2018
-* Auteur: David Dratwa
+* Date : 22 octobre 2018
+* Auteurs: Raphael Geoffrion et Jules Lefebvre
 *******************************************/
 
 
@@ -19,6 +19,7 @@ public:
 	//constructeur
 	DepenseGroupe(const string& nom, double montant, const string& lieu);
 	DepenseGroupe(const DepenseGroupe& depense);
+	DepenseGroupe(const Depense& depense);
 
 	//getters 
 	unsigned int getNombreParticipants() const; 
