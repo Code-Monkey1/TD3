@@ -8,14 +8,13 @@
 
 // Constructeurs
 
-UtilisateurRegulier::UtilisateurRegulier(const string & nom, bool estGroupe):Utilisateur(nom, Regulier, TAUX_REGULIER)
+UtilisateurRegulier::UtilisateurRegulier(const string & nom, bool estGroupe):Utilisateur(nom, Regulier), estGroupe_(estGroupe)
 {
-	estGroupe_ = estGroupe;
 }
 
 UtilisateurRegulier::UtilisateurRegulier(const Utilisateur & utilisateur):Utilisateur(utilisateur)
 {
-	// Doit-on initialiser estGroupe_ ?
+	setEtatGroupe(false);
 }
 
 // Méthode d'accès
@@ -33,9 +32,10 @@ void UtilisateurRegulier::setEtatGroupe(bool etat)
 }
 
 // surcharge de l'opérateur =. Utilise la surcharge de la classe mère Utilisateur.
-UtilisateurRegulier & UtilisateurRegulier::operator=(Utilisateur * utilisateur)
+UtilisateurRegulier & UtilisateurRegulier::operator=(Utilisateur* pointeurUtilisateur)
 {
-	// Comment utiliser = de la classe mère?
+	static_cast<Utilisateur>(*pointeurUtilisateur) = *pointeurUtilisateur;
+	return *this;
 }
 
 // Méthode d'affichage
@@ -43,12 +43,7 @@ UtilisateurRegulier & UtilisateurRegulier::operator=(Utilisateur * utilisateur)
 // surcharge de l'opérateur <<. Utilise la surcharhe de la classe mère Utilisateur.
 ostream & operator<<(ostream & os, const UtilisateurRegulier & utilisateur)
 {
-	// Utilisation de << de la classe Utilisateur
-	
-	if (utilisateur.estGroupe() == true) {
-		// utilisateur fait partie du groupe...
-	}
-	else {
-		// utilisateur est non-groupé...
-	}
+	os << static_cast<Utilisateur>(utilisateur);
+	// Si besoin est, les dépenses de groupe sont affichées par la surcharge << de la classe Utilisateur.
+	return os;
 }

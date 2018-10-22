@@ -8,11 +8,11 @@
 
 // Constructeurs
 
-Utilisateur::Utilisateur(const string& nom, TypeUtilisateur type, double interet)
+Utilisateur::Utilisateur(const string& nom, TypeUtilisateur type)
 {
 	nom_ = nom;
 	type_ = type;
-	interet_ = interet;
+	interet_ = 0;
 	double totalDepense_ = 0;
 }
 
@@ -49,7 +49,7 @@ double Utilisateur::getInteret() const {
 }
 
 unsigned int Utilisateur::getNombreDepenses() const {
-		return depenses_.size();
+	return depenses_.size();
 }
 
 vector <Depense*> Utilisateur::getDepenses() const {
@@ -66,11 +66,16 @@ void Utilisateur::ajouterInteret(double montant) {
 }
 
 void Utilisateur::calculerTotalDepenses() {
-	double total = 0;
+	double totalDepenses = 0;
+	double montantInteret = 0;
 	for (int i = 0; i < depenses_.size(); i++) {
-		total += depenses_[i]->getMontant();
+		// Calcul du total de depense de l'utilisateur.
+		totalDepenses += depenses_[i]->getMontant();
+		// Calcul de l'interet retenu par Polycount pour cet utilisateur.
+		montantInteret = depenses_[i]->getMontant() * interet_;
+		ajouterInteret(montantInteret);
 	}
-	totalDepense_ = total;
+	totalDepense_ = totalDepenses;
 }
 
 // surcharge de l'opérateur += pour ajouter une depense (ptr depense) à un utilisateur.
@@ -101,8 +106,17 @@ ostream& operator<<(ostream& os, const Utilisateur& utilisateur)
 {
 	os << "Utilisateur : " << utilisateur.getNom() << " (" << utilisateur.getType() << ") a depense pour un total de : " << utilisateur.getTotalDepenses()
 		<< ", PolyCount prend en interet : " << utilisateur.getInteret() << ", voici les depenses :" << endl;
+	// Dépenses individuelles
 	for (unsigned int i = 0; i < utilisateur.getNombreDepenses(); i++) {
-		cout << "\t\t" << (*utilisateur.depenses_[i]);
+		if(utilisateur.depenses_[i]->getType() == individuelle){
+			cout << "\t\t" << (*utilisateur.depenses_[i]) << endl;
+		}
+	}
+	// Dépenses de groupe
+	for (unsigned int i = 0; i < utilisateur.getNombreDepenses(); i++) {
+		if (utilisateur.depenses_[i]->getType() == groupe) {
+			cout << "\t\t" << "Depense de groupe :\t" << (*utilisateur.depenses_[i]) << endl;
+		}
 	}
 	return os;
 }

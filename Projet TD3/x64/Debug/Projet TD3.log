@@ -1,18 +1,7 @@
-﻿  depense.cpp
-  depenseGroupe.cpp
-  groupe.cpp
-  main.cpp
-c:\users\jules\source\repos\td3\projet td3\main.cpp(8): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-  transfert.cpp
+﻿  groupe.cpp
   utilisateur.cpp
-c:\users\jules\source\repos\td3\projet td3\utilisateur.cpp(33): warning C4267: 'return' : conversion de 'size_t' en 'unsigned int', perte possible de données
-  utilisateurPremium.cpp
-  utilisateurRegulier.cpp
+c:\users\jules\source\repos\td3\projet td3\utilisateur.cpp(52): warning C4267: 'return' : conversion de 'size_t' en 'unsigned int', perte possible de données
   Génération de code en cours...
-c:\users\jules\source\repos\td3\projet td3\utilisateur.cpp(52): error C4716: 'Utilisateur::operator=' : doit retourner une valeur
-c:\users\jules\source\repos\td3\projet td3\utilisateur.cpp(68): error C4716: 'operator<<' : doit retourner une valeur
-c:\users\jules\source\repos\td3\projet td3\utilisateur.cpp(61): error C4716: 'Utilisateur::operator+=' : doit retourner une valeur
-c:\users\jules\source\repos\td3\projet td3\groupe.cpp(59): error C4716: 'Groupe::ajouterDepense' : doit retourner une valeur
 c:\users\jules\source\repos\td3\projet td3\groupe.cpp(64): error C4716: 'Groupe::operator+=' : doit retourner une valeur
+c:\users\jules\source\repos\td3\projet td3\groupe.cpp(59): error C4716: 'Groupe::ajouterDepense' : doit retourner une valeur
 c:\users\jules\source\repos\td3\projet td3\groupe.cpp(124): error C4716: 'operator<<' : doit retourner une valeur
-c:\users\jules\source\repos\td3\projet td3\depense.cpp(57): error C4716: 'Depense::operator=' : doit retourner une valeur
